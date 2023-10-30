@@ -1,7 +1,23 @@
-[gd_scene load_steps=15 format=3 uid="uid://llabsi5ntmuh"]
+[gd_scene load_steps=19 format=3 uid="uid://llabsi5ntmuh"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_81e8o"]
 [ext_resource type="Texture2D" uid="uid://b87blgo8g7dre" path="res://Assets/player.png" id="2_ra64m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7eo7"]
+atlas = ExtResource("2_ra64m")
+region = Rect2(192, 140, 32, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysls8"]
+atlas = ExtResource("2_ra64m")
+region = Rect2(224, 140, 32, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynxgn"]
+atlas = ExtResource("2_ra64m")
+region = Rect2(256, 140, 32, 70)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lm22n"]
+atlas = ExtResource("2_ra64m")
+region = Rect2(288, 140, 32, 70)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdo3c"]
 atlas = ExtResource("2_ra64m")
@@ -45,6 +61,23 @@ region = Rect2(192, 0, 32, 70)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8xa8"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7eo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysls8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynxgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lm22n")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mdo3c")
@@ -97,17 +130,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2gvj"]
-size = Vector2(16, 47)
+size = Vector2(38, 95)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_81e8o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(94, 0)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k8xa8")
-animation = &"Jump"
+animation = &"Idle"
 autoplay = "Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 5.5)
+position = Vector2(93, 10)
 shape = SubResource("RectangleShape2D_d2gvj")
+
+[node name="Attack" type="RayCast2D" parent="."]
+position = Vector2(96, -8)
+target_position = Vector2(32, -1)
