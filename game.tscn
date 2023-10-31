@@ -1,10 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://dlsm3cxn5676f"]
+[gd_scene load_steps=19 format=3 uid="uid://dlsm3cxn5676f"]
 
 [ext_resource type="Texture2D" uid="uid://bva3xekeobk2g" path="res://Assets/Tiles copy.png" id="3_0edr8"]
 [ext_resource type="PackedScene" uid="uid://llabsi5ntmuh" path="res://player.tscn" id="3_jet8q"]
 [ext_resource type="PackedScene" uid="uid://1vqc5lr045sv" path="res://Enemy/monster.tscn" id="3_tjx8s"]
 [ext_resource type="PackedScene" uid="uid://diaf0cpamg8yn" path="res://Bat/bat.tscn" id="4_vvepb"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="4_xew4r"]
+[ext_resource type="AudioStream" uid="uid://jfuqq5btq1o0" path="res://Assets/Music (mp3cut.net).mp3" id="6_pgw87"]
+[ext_resource type="AudioStream" uid="uid://duaf1r2cxa7i8" path="res://Assets/jump (mp3cut.net).wav" id="7_e8kd7"]
+[ext_resource type="AudioStream" path="res://Assets/walking (mp3cut.net).wav" id="8_4arjq"]
+[ext_resource type="Texture2D" uid="uid://dlevm6hugyxlc" path="res://Assets/grass.png" id="9_1ke8c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jub6q"]
 texture = ExtResource("3_0edr8")
@@ -255,6 +259,10 @@ sources/0 = SubResource("TileSetAtlasSource_jub6q")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5khvu"]
 size = Vector2(1152, 50)
+
+[sub_resource type="Curve" id="Curve_m2wt0"]
+_data = [Vector2(0.0135281, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0817816), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vkx67"]
 texture = ExtResource("3_0edr8")
@@ -1267,6 +1275,20 @@ shape = SubResource("RectangleShape2D_5khvu")
 
 [node name="Player" parent="Player_Container" instance=ExtResource("3_jet8q")]
 
+[node name="Grass" type="CPUParticles2D" parent="Player_Container/Player"]
+position = Vector2(96, 352)
+emitting = false
+amount = 6
+lifetime = 0.5
+explosiveness = 0.7
+texture = ExtResource("9_1ke8c")
+direction = Vector2(0, -1)
+spread = 25.0
+initial_velocity_min = 100.0
+initial_velocity_max = 250.0
+angular_velocity_max = 800.0
+scale_amount_curve = SubResource("Curve_m2wt0")
+
 [node name="Enemy_Container" type="Node2D" parent="."]
 
 [node name="Monster" parent="Enemy_Container" instance=ExtResource("3_tjx8s")]
@@ -1300,3 +1322,13 @@ script = ExtResource("4_xew4r")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_ayi3s")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_pgw87")
+autoplay = true
+
+[node name="Player_Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_e8kd7")
+
+[node name="Player_Walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_4arjq")
