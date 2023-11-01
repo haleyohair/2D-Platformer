@@ -6,6 +6,9 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _physics_process(_delta):
+	if get_child_count() == 1:
+		var Player = load("res://player.tscn")
+		var player = Player.instantiate()
+		player.position = $Spawn.position
+		add_child(player)
