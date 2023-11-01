@@ -76,7 +76,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Attack",
-"speed": 5.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -136,16 +136,23 @@ size = Vector2(38, 95)
 script = ExtResource("1_81e8o")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(94, 0)
+position = Vector2(2.08165e-12, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k8xa8")
-animation = &"Idle"
+animation = &"Attack"
 autoplay = "Jump"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(93, 10)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_d2gvj")
 
 [node name="Attack" type="RayCast2D" parent="."]
-position = Vector2(96, -8)
 target_position = Vector2(32, -1)
+
+[node name="Attacking" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="Attacking" to="." method="_on_attacking_timeout"]

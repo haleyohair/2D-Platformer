@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://dlsm3cxn5676f"]
 
+[ext_resource type="Script" path="res://Player/Player_Container.gd" id="2_0r2sp"]
 [ext_resource type="Texture2D" uid="uid://bva3xekeobk2g" path="res://Assets/Tiles copy.png" id="3_0edr8"]
-[ext_resource type="PackedScene" uid="uid://llabsi5ntmuh" path="res://player.tscn" id="3_jet8q"]
 [ext_resource type="PackedScene" uid="uid://1vqc5lr045sv" path="res://Enemy/monster.tscn" id="3_tjx8s"]
 [ext_resource type="PackedScene" uid="uid://diaf0cpamg8yn" path="res://Bat/bat.tscn" id="4_vvepb"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="4_xew4r"]
@@ -1264,8 +1264,10 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_5khvu")
 
 [node name="Player_Container" type="Node2D" parent="."]
+script = ExtResource("2_0r2sp")
 
-[node name="Player" parent="Player_Container" instance=ExtResource("3_jet8q")]
+[node name="Spawn" type="Marker2D" parent="Player_Container"]
+position = Vector2(94, 2.08165e-12)
 
 [node name="Enemy_Container" type="Node2D" parent="."]
 
