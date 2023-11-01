@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://llabsi5ntmuh"]
+[gd_scene load_steps=23 format=3 uid="uid://llabsi5ntmuh"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_81e8o"]
 [ext_resource type="Texture2D" uid="uid://b87blgo8g7dre" path="res://Assets/player.png" id="2_ra64m"]
+[ext_resource type="Texture2D" uid="uid://dlevm6hugyxlc" path="res://Assets/grass.png" id="3_eof8g"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b7eo7"]
 atlas = ExtResource("2_ra64m")
@@ -132,6 +133,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2gvj"]
 size = Vector2(38, 95)
 
+[sub_resource type="Curve" id="Curve_3s6qp"]
+_data = [Vector2(0, 0.372946), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_jlu4h"]
+curve = SubResource("Curve_3s6qp")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_omh5e"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(20, 1, 1)
+particle_flag_disable_z = true
+direction = Vector3(2.08165e-12, -1, 2.08165e-12)
+spread = 15.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_curve = SubResource("CurveTexture_jlu4h")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+turbulence_enabled = true
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_81e8o")
 
@@ -139,10 +164,7 @@ script = ExtResource("1_81e8o")
 position = Vector2(2.08165e-12, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k8xa8")
-animation = &"Attack"
 autoplay = "Jump"
-frame = 3
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7)
@@ -154,5 +176,11 @@ target_position = Vector2(32, -1)
 [node name="Attacking" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
+
+[node name="Grass" type="GPUParticles2D" parent="."]
+position = Vector2(2.08165e-12, 50)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_omh5e")
+texture = ExtResource("3_eof8g")
 
 [connection signal="timeout" from="Attacking" to="." method="_on_attacking_timeout"]

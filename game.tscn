@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Camera2D.gd" id="4_xew4r"]
 [ext_resource type="AudioStream" uid="uid://jfuqq5btq1o0" path="res://Assets/Music (mp3cut.net).mp3" id="6_pgw87"]
 [ext_resource type="AudioStream" uid="uid://duaf1r2cxa7i8" path="res://Assets/jump (mp3cut.net).wav" id="7_e8kd7"]
-[ext_resource type="AudioStream" path="res://Assets/walking (mp3cut.net).wav" id="8_4arjq"]
+[ext_resource type="AudioStream" uid="uid://dvro74npbqjqq" path="res://Assets/walking (mp3cut.net).wav" id="8_4arjq"]
 [ext_resource type="Texture2D" uid="uid://dlevm6hugyxlc" path="res://Assets/grass.png" id="9_1ke8c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jub6q"]
@@ -1277,7 +1277,7 @@ script = ExtResource("2_0r2sp")
 [node name="Spawn" type="Marker2D" parent="Player_Container"]
 position = Vector2(94, 2.08165e-12)
 
-[node name="Grass" type="CPUParticles2D" parent="Player_Container/Player"]
+[node name="Player_Container@Player@Grass" type="CPUParticles2D" parent="."]
 position = Vector2(96, 352)
 emitting = false
 amount = 6
