@@ -157,7 +157,7 @@ script = ExtResource("1_tn8ri")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_6gi43")
-animation = &"Moving"
+animation = &"Dying"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -6.5)
