@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://llabsi5ntmuh"]
+[gd_scene load_steps=24 format=3 uid="uid://llabsi5ntmuh"]
 
 [ext_resource type="Script" path="res://Player/Player.gd" id="1_81e8o"]
 [ext_resource type="Texture2D" uid="uid://b87blgo8g7dre" path="res://Assets/player.png" id="2_ra64m"]
@@ -157,6 +157,10 @@ hue_variation_min = -1.0
 hue_variation_max = 1.0
 turbulence_enabled = true
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ad51i"]
+radius = 16.0
+height = 112.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_81e8o")
 
@@ -164,7 +168,7 @@ script = ExtResource("1_81e8o")
 position = Vector2(2.08165e-12, -5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_k8xa8")
-animation = &"Attack"
+animation = &"Idle"
 autoplay = "Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -184,4 +188,13 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_omh5e")
 texture = ExtResource("3_eof8g")
 
+[node name="Coin_Collector" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin_Collector"]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_ad51i")
+
 [connection signal="timeout" from="Attacking" to="." method="_on_attacking_timeout"]
+[connection signal="body_entered" from="Coin_Collector" to="." method="_on_coin_collector_body_entered"]
