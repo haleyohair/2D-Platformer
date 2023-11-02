@@ -9,15 +9,19 @@ Built with Godot 4.1
 
 ## References
 
-Created using [Godot 4.1.1](https://godotengine.org/download)
+Created using: [Godot 4.1.1](https://godotengine.org/download)
 
-Tileset from https://www.kenney.nl/assets/abstract-platformer
+Tileset is from: https://www.kenney.nl/assets/abstract-platformer
 
-Music recorded in [MuseScore 4.1.1](https://musescore.org/en)
+Animated sprite enemy is from: https://creativekind.itch.io/nightborne-warrior
 
-Sound effects recorded in [Audacity 3.3.3](https://www.audacityteam.org/)
+Animated sprite bat is from: https://ome6a1717.itch.io/simple-enemies-bat
 
-Music and Sound effects cut using https://mp3cut.net/
+Music recorded in: [MuseScore 4.1.1](https://musescore.org/en)
+
+Sound effects recorded in: [Audacity 3.3.3](https://www.audacityteam.org/)
+
+Music and Sound effects cut using: https://mp3cut.net/
 
 ## Future Development
 
