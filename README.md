@@ -8,7 +8,16 @@ Built with Godot 4.1
 ## What Makes this a Game?
 
 ## References
-tile set from https://www.kenney.nl/assets/abstract-platformer
+
+Created using [Godot 4.1.1](https://godotengine.org/download)
+
+Tileset from https://www.kenney.nl/assets/abstract-platformer
+
+Music recorded in [MuseScore 4.1.1](https://musescore.org/en)
+
+Sound effects recorded in [Audacity 3.3.3](https://www.audacityteam.org/)
+
+Music and Sound effects cut using https://mp3cut.net/
 
 ## Future Development
 
