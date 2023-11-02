@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -800.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var attacking = false
 
+
 func die():	
 	queue_free()
 
