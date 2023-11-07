@@ -5,8 +5,10 @@ The beginnings of a basic 2D platformer
 
 ## Implementation
 Built with Godot 4.1
+The player can attack the enemies and the enemies can attack the player. The monster has a weapon to use to attack. If the bat runs into the player the bat and the player die.  Music was made for the level of the game and sound affects have been made when the player jumps, walks, attacks, and dies. There are tiny blades of grass that fly up when the player walks. The end game screen tells the player how many coins they get. There is a 30 second timer and when it runs out the game is over. The game also ends if the player collects all of the coins. 
+
 ## What Makes this a Game?
-This is a game because there is a set goal of the game, which is to collect as many coins as you can before the time runs out.
+This is a game because there is a set goal, which is to collect as many coins as you can before the time runs out. The player has the ability to run around, jump, and attack the enenmies in their way. There is an end screen with the amount of coins the player got to give the player satisfaction.
 
 ## References
 
