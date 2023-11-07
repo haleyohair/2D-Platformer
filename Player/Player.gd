@@ -10,6 +10,8 @@ var attacking = false
 
 
 func die():	
+	var die= get_node("/root/Game/Die")
+	die.play()
 	queue_free()
 
 func play_animation(a):
@@ -53,6 +55,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("Attack") and is_on_floor():
 		play_animation("Attack")
 		attack()
+		var player_attack= get_node("/root/Game/Player_Attack")
+		player_attack.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

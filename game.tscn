@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dlsm3cxn5676f"]
+[gd_scene load_steps=27 format=3 uid="uid://dlsm3cxn5676f"]
 
 [ext_resource type="Script" path="res://Player/Player_Container.gd" id="2_0r2sp"]
 [ext_resource type="Texture2D" uid="uid://dfh0xi3rauviy" path="res://Assets/coin.png" id="2_umy5c"]
@@ -12,7 +12,9 @@
 [ext_resource type="AudioStream" uid="uid://dvro74npbqjqq" path="res://Assets/walking (mp3cut.net).wav" id="8_4arjq"]
 [ext_resource type="Texture2D" uid="uid://dlevm6hugyxlc" path="res://Assets/grass.png" id="9_1ke8c"]
 [ext_resource type="Script" path="res://UI/HUD.gd" id="12_ecvdo"]
+[ext_resource type="AudioStream" uid="uid://doik77dnc2c66" path="res://Assets/attack (mp3cut.net).wav" id="12_hkluk"]
 [ext_resource type="Script" path="res://UI/Menu.gd" id="13_b2evm"]
+[ext_resource type="AudioStream" uid="uid://jsfhgxga5t33" path="res://Assets/die (mp3cut.net).wav" id="13_dn8tx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jub6q"]
 texture = ExtResource("3_0edr8")
@@ -1361,6 +1363,12 @@ stream = ExtResource("7_e8kd7")
 
 [node name="Player_Walk" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_4arjq")
+
+[node name="Player_Attack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_hkluk")
+
+[node name="Die" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_dn8tx")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
