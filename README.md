@@ -6,6 +6,7 @@ The beginnings of a basic 2D platformer
 ## Implementation
 Built with Godot 4.1
 ## What Makes this a Game?
+This is a game because there is a set goal of the game, which is to collect as many coins as you can before the time runs out.
 
 ## References
 
